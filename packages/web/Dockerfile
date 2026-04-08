@@ -17,6 +17,7 @@ COPY packages/yucca-sdk/orchestration-ui/ packages/yucca-sdk/orchestration-ui/
 COPY packages/web/ packages/web/
 RUN pnpm --filter yucca-api-client build
 RUN pnpm --filter orchestration-ui build
+RUN pnpm --filter web lingui:compile
 RUN pnpm --filter web build
 
 FROM base AS production
