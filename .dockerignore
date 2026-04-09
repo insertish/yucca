@@ -10,3 +10,4 @@ e2e
 **/.env*
 Dockerfile
 packages/**/build
+.miserc.toml

@@ -24,14 +24,15 @@ ENV MISE_DATA_DIR="/mise"
 ENV MISE_CONFIG_DIR="/mise"
 ENV MISE_CACHE_DIR="/mise/cache"
 ENV MISE_INSTALL_PATH="/usr/local/bin/mise"
-ENV MISE_TASK_RUN_AUTO_INSTALL=false
+ENV MISE_TASK_RUN_AUTO_INSTALL="false"
 ENV PATH="/mise/shims:$PATH"
+ENV MISE_ENV="production"
 
 RUN npm install -g pnpm@10.28.1
 RUN curl https://mise.run | sh
 RUN mise trust
 RUN pnpm i --frozen-lockfile
-RUN NODE_ENV=production mise web:build
+RUN mise web:build
 RUN pnpm --filter web deploy /deploy --prod --legacy
 
 FROM alpine:${ALPINE_VERSION}
