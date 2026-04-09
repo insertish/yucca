@@ -26,6 +26,7 @@ ENV MISE_CACHE_DIR="/mise/cache"
 ENV MISE_INSTALL_PATH="/usr/local/bin/mise"
 ENV MISE_TASK_RUN_AUTO_INSTALL=false
 ENV PATH="/mise/shims:$PATH"
+ENV NODE_ENV="production"
 
 RUN npm install -g pnpm@10.28.1
 RUN curl https://mise.run | sh
