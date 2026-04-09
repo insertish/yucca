@@ -3,7 +3,7 @@ name: Test Release
 on:
   push:
     branches:
-      - feat/deployment2
+      - feat/deployment3
 
 jobs:
   build:
