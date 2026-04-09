@@ -34,4 +34,16 @@ const schema = z
     RESTIC_ENDPOINT: RESTIC_ENDPOINT ?? `http://${options.RESTIC_API_HOST}:${options.RESTIC_API_PORT}`,
   }));
 
-export const env = schema.parse(process.env);
+let env: z.infer<typeof schema>;
+
+try {
+  env = schema.parse(process.env);
+} catch (error) {
+  if (process.env.NODE_ENV !== 'development') {
+    throw error;
+  }
+
+  env = {} as z.infer<typeof schema>;
+}
+
+export { env };

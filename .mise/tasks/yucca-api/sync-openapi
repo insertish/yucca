@@ -4,4 +4,4 @@
 #MISE depends=["yucca-api:build"]
 set -e
 
-node dist/bin/sync-openapi.js
+NODE_ENV=development node dist/bin/sync-openapi.js
