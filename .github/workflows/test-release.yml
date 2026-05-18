@@ -3,7 +3,7 @@ name: Test Release
 on:
   push:
     branches:
-      - feat/deployment3
+      - feat/deploy
 
 jobs:
   build:
@@ -20,6 +20,8 @@ jobs:
             dockerfile: packages/yucca-api/Dockerfile
           - image: yucca/web
             dockerfile: packages/web/Dockerfile
+          - image: yucca/michael
+            dockerfile: packages/michael/Dockerfile
 
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
